@@ -35,6 +35,12 @@ module.exports = {
       },
       // css处理
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+
+      },
+      // css处理
+      {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
 
@@ -85,17 +91,6 @@ module.exports = {
       filename: __dirname + '/dist/open.html',
       template: __dirname + "/src/open/open.html",
       chunks: ['open'],
-      inlineSource: '.(js|css)$',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      },
-    }),
-    new HtmlWebpackPlugin({
-      inject: 'head',
-      filename: __dirname + '/dist/download.html',
-      template: __dirname + "/src/download/download.html",
-      chunks: ['download'],
       inlineSource: '.(js|css)$',
       minify: {
         removeComments: true,
