@@ -113,6 +113,10 @@ module.exports = {
     hot: true,
     host: 'localhost',
     port: 8888,
-    open: true
+    // open: true
   }
 }
+
+// 接下来需要将入口使用fs自动读取，
+// htmlwebpackplugin 也需要自动生成
+// 将dev 与 prod模式分开，不同模式下使用不同的config
