@@ -5,19 +5,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-
+const baseConfig = require('./webpack.base.config');
 
 module.exports = {
-  entry: {
-    index: './src/index/index.js',
-    download: './src/download/download.js',
-    open: './src/open/open.js',
-  },
-  output: {
-    path: __dirname + "/dist/",
-    filename: 'js/[name]-[hash:5].js',
-    // publicPath: './static',
-  },
+  entry: baseConfig.entry,
+  output: baseConfig.output ,
   resolve: {
     alias: {
       'vue': 'vue/dist/vue.js'
