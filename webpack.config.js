@@ -7,9 +7,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index/index.js',
-    download: './src/download/download.js',
-    open: './src/open/open.js',
+    // index: './src/index/index.js',
+    index: './pages/index.js',
+    // download: './src/download/download.js',
+    // open: './src/open/open.js',
   },
   output: {
     path: __dirname + "/dist/",
@@ -73,12 +74,12 @@ module.exports = {
     //   sourceMap: false,
     //   parallel: true
     // }),
-    new ExtractTextPlugin(__dirname + '/assert/css/common.less'),
+    new ExtractTextPlugin(__dirname + '/asset/css/common.less'),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: __dirname + '/dist/index.html',
       inject: 'head',
-      template: 'html-withimg-loader!' + __dirname + "/src/index/index.html",
+      template: 'html-withimg-loader!' + __dirname + "/pages/index.html",
       chunks: ['index'],
       inlineSource: '.(js|css)$',
       minify: {
@@ -86,17 +87,17 @@ module.exports = {
         collapseWhitespace: true
       },
     }),
-    new HtmlWebpackPlugin({
-      inject: 'head',
-      filename: __dirname + '/dist/open.html',
-      template: __dirname + "/src/open/open.html",
-      chunks: ['open'],
-      inlineSource: '.(js|css)$',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      },
-    }),
+    // new HtmlWebpackPlugin({
+    //   inject: 'head',
+    //   filename: __dirname + '/dist/open.html',
+    //   template: __dirname + "/src/open/open.html",
+    //   chunks: ['open'],
+    //   inlineSource: '.(js|css)$',
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true
+    //   },
+    // }),
     new CleanWebpackPlugin(
       ['dist/*', 'dist/*',],　                //匹配删除的文件
       {
